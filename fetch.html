@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <article>
+
+    </article>
+    <input type="button" value='fetch' onclick="
+        // fetch('css').then(function(response){
+        //     response.text().then(function(text){
+        //         alert(text);
+        //         document.querySelector('article').innerHTML = text;
+        //     })
+        // })
+        // fetch('css') ; 웹서버야 css좀 갖다줘
+        // .then(callback) ; 응답이 오면 callback을 실행시켜줘. 그 전에 할 거 하샘(비동기) 
+        // 콜백에 response 인자를 넣은 것이 fetch('css')가 return한 것 참조
+        fetch('css').then(function(response){
+            response.text().then(function(text){
+                var i = 0
+                while(i<1000000000){
+                    i += 1
+                }
+                alert(text)
+            })
+        })
+        console.log(123)
+    ">
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>WEB1 - Welcome</title>
+    <meta charset='utf-8'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- <script src='fetch/fetch.js'></script> -->
+    <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script>
+    <script src=https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0/dist/fetch.umd.min.js></script>
+    
+</head>
+<body>
+    <h1><a href="index.html">WEB</a></h1>
+    <input type="button" value='night' onclick="
+    nightday_handler(this)
+    ">
+    <ol id='nav'>
+    </ol>
+    <img src="coding.jpg" width='50%'>
+    <article>
+
+    </article>
+</body>
+<script>
+    function fetch_page(name){
+        fetch(name).then(function(response){
+            response.text().then(function(text){
+                document.querySelector('article').innerHTML = text;
+            })
+        })
+    }
+    // 해쉬가 포함된 주소를 넘기면 그 사람도 똑같은 걸 보게하겠다 
+    if(location.hash){
+        fetch_page(location.hash.substr(2))
+    }
+
+    //문제점 : old_bad_list에는 너무 중복이 많다
+    // fetch('old_bad_list').then(function(response){
+    // response.text().then(function(text){
+    //     document.querySelector('#nav').innerHTML = text;
+    // })
+    // })
+    //개선안 : split()으로 배열로 바꾼 다음에 반복문을 활용하자
+    fetch('list').then(function(response){
+    response.text().then(function(text){
+        var items = text.split(',');
+        var i = 0;
+        var tags = '';
+        while(i<items.length){
+            var item = items[i];
+            var tag = '<li><a href="#!'+item+'" onclick="fetch_page(\''+item+'\')">'+item+'</a></li>';
+            i = i + 1;
+            tags = tags + tag
+        }
+        document.querySelector('#nav').innerHTML = tags;
+    })
+    })
+</script>
+</html>

@@ -1,6 +1,8 @@
 # web3_Ajax
 https://opentutorials.org/course/3281
 
+https://leequant761.github.io/web3_Ajax/index.html
+
 ## 목적
 
 Single Page Application이라는 유사 애플리케이션을 만들게 된다.
@@ -13,7 +15,9 @@ Single Page Application이라는 유사 애플리케이션을 만들게 된다.
 
 클라이언트가 검색어를 입력하면 웹브라우저와 웹서버가 통신을 한 뒤에 받은 것을 부분적으로 갱신하는 것이다.
 
-그래서 목적이라 한다면 "html에서 바뀔 수 있는 부분을 fetchAPI을 사용하여 Asynchronous JavaScript and XML를 구현하자" 이다.
+그래서 목적이라 한다면 
+
+> "html에서 바뀔 수 있는 부분을 fetchAPI을 사용하여 Asynchronous JavaScript and XML를 구현하자"
 
 ## 키워드
 
